@@ -26,7 +26,7 @@ do
 		echo 'Chat ids: '${chat_ids[@]}
 		for chat_id in ${chat_ids[@]}; do
 			echo "Parsing new messages from chat_id: "$chat_ids
-			for token in ETH BTC DOGE; do 
+			for token in ETH BTC DOGE BNB; do 
 				echo $m_result | jq '.result[] | select(.message.chat.id | contains('$chat_id') )'  | grep -q -i $token
 				if [[ $? -eq 0 ]]; then
 					echo "Send Message for "$token
