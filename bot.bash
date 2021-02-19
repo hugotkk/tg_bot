@@ -16,7 +16,7 @@ echo "Last update id: "$update_id
 while true; 
 do
 	echo "Sleeping for $sleep Second"
-	sleep 5
+	sleep $sleep
 	echo "POLL START"
 	m_result=$(curl -s $api_url'/getUpdates?offset='$update_id)
 	update_id=$(echo $m_result | jq .result[-1].update_id)
